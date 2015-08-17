@@ -1,6 +1,6 @@
 {
   "name": "ember-wildland-blueprints",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -45,6 +45,7 @@
   "dependencies": {
     "ember-cli-babel": "^5.0.0",
     "ember-router-generator": "^1.0.0",
+    "inflection": "^1.7.0",
     "wildland-styles-generator": "0.1.0",
     "fs-extra": "0.22.1"
   },

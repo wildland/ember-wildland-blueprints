@@ -14,7 +14,7 @@
             <tr>
                 <%= resourceAttributesTd %>
                 <td>{{#link-to '<%= resourceShowRoute %>' model classNames="btn btn-primary"}}Show{{/link-to}}</td>
-                <td><button {{action "deleteClient" model}} class="btn btn-danger">Delete</button></td>
+                <td><button {{action "delete" model}} class="btn btn-danger">Delete</button></td>
             </tr>
           {{else}}
             <tr>

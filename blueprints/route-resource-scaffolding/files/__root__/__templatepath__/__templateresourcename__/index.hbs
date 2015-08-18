@@ -1,0 +1,26 @@
+<div id="<%= idName %>-index">
+  <h1><%= resourceNameHumanized %></h1>
+  {{#link-to '<%= resourceNewRoute %>' classNames="btn btn-primary"}}<span class="glyphicon glyphicon-plus-sign"></span>Add New{{/link-to}}
+  <table class="table table-striped table-hover">
+      <thead>
+          <tr>
+            <%= resourceAttributesTh %>
+            <th></th>
+            <th></th>
+          </tr>
+      </thead>
+      <tbody>
+          {{#each content as |model|}}
+            <tr>
+                <%= resourceAttributesTd %>
+                <td>{{#link-to '<%= resourceShowRoute %>' model classNames="btn btn-primary"}}Show{{/link-to}}</td>
+                <td><button {{action "delete" model}} class="btn btn-danger">Delete</button></td>
+            </tr>
+          {{else}}
+            <tr>
+                <td colspan="100%">You have no records.</td>
+            </tr>
+          {{/each}}
+      </tbody>
+  </table>
+</div>

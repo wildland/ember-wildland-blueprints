@@ -54,7 +54,7 @@ module.exports = {
 
       if (!/has-many|belongs-to/.test(dasherizedType)) {
         resourceAttributesTh.push(`<th>${humanizedSingularName}</th>`);
-        resourceAttributesTd.push(`<td>{{${camelizedName}}}</td>`);
+        resourceAttributesTd.push(`<td>{{model.${camelizedName}}}</td>`);
       }
     }
 

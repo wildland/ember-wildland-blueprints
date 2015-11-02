@@ -38,6 +38,7 @@ module.exports = {
     var singularResourceNameDasherized = inflection.singularize(resourceNameDasherized);
     var resourceNameUnderscored = stringUtils.underscore(resourceNameDasherized);
     var resourceNameHumanized = inflection.humanize(resourceNameUnderscored);
+    var resourceAttributes = [];
     var resourceAttributesTh = [];
     var resourceAttributesTd = [];
 
@@ -53,8 +54,14 @@ module.exports = {
       var dasherizedType = stringUtils.dasherize(type);
 
       if (!/has-many|belongs-to/.test(dasherizedType)) {
-        resourceAttributesTh.push(`<th>${humanizedSingularName}</th>`);
-        resourceAttributesTd.push(`<td>{{model.${camelizedName}}}</td>`);
+        resourceAttributes.push({
+          type: type,
+          dasherizedName: dasherizedName,
+          dasherizedNameSingular: dasherizedNameSingular,
+          humanizedSingularName: humanizedSingularName,
+          camelizedName: camelizedName,
+          dasherizedType: dasherizedType,
+        });
       }
     }
 
@@ -66,8 +73,7 @@ module.exports = {
       resourceNewRoute: fullResourceName.split('/').join('.') + '.new',
       resourceIndexRoute: fullResourceName.split('/').join('.'),
       resourceShowRoute: fullResourceName.split('/').join('.') + '.show',
-      resourceAttributesTh: resourceAttributesTh.join(EOL + '            '),
-      resourceAttributesTd: resourceAttributesTd.join(EOL + '                ')
+      resourceAttributes: resourceAttributes,
     };
   },
 
